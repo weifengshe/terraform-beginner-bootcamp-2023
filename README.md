@@ -166,3 +166,5 @@ If it is successful you should see a json payload return that looks like this:
     "Arn": "arn:aws:iam::992081262966:user/terraform-beginner-bootcamp"
 }
 ```
+
+We'll need to generate AWS CIL credentials from IAM user in order to the user AWS CIL. 
