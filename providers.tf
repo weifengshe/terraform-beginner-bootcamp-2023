@@ -1,10 +1,10 @@
 terraform {
-  cloud {
-    organization = "weifeng"
-    workspaces {
-      name = "terra-house-1"
-    }
-  }
+  # cloud {
+  #   organization = "weifeng"
+  #   workspaces {
+  #     name = "terra-house-1"
+  #   }
+  # }
   required_providers {
     random = {
       source = "hashicorp/random"
