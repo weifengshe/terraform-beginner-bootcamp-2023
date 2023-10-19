@@ -15,3 +15,51 @@ PROJECT_ROOT
 
 
 [Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
+
+## Terraform and Input variables 
+
+### Terraform Cloud Variables
+In order for us remotely destory the infrastructure, we need to define variables in Terraform Could under Organization. 
+
+In terraform we can set two kinds of variables: 
+
+- Environment Variables - those you would set in your bash terminal eg. AWS credentials
+- Terraform Variables - Those that you would normally set in your tfvars file 
+
+We can set Terraform Could Variables to be sensitive so they are not shown visibly in the UI. 
+
+### Loading Terraform Input Varialbes 
+[Terraform Input Variables](https://developer.hashicorp.com/terraform/language/values/variables)
+
+### Var flag 
+We can use the `-var` flag to set an input varialbe or outside a variable in the tfvars file eg. `terraform -var user_uuid="my-user-id"`
+
+### var-file flag 
+To set lots of variables, it is more convenient to specify their values in a variable defination file (with a filename ending in either .tfvars or .tfvars.json) and then specify that file on the command line with -var-file:
+
+```sh 
+terraform apply -var-file='testing.tfvars'
+```
+
+```
+### testing.tfvars configuration would be as below
+image_id = "weifeng-abc123"
+availability_zone_names = [
+    "us-east-1a",
+     "us-east-1c"
+]
+```
+
+### terraform.tvfars 
+
+This is the default file to load in terraform varialbes in remote ex: gitpod, jumppad and this gets automatically processed by terraform
+
+### auto.tfvars 
+- TODO: document this functionality for terraform cloud 
+
+
+
+### order of terraform variables
+
+
+![Terraform variable order precedence]()
