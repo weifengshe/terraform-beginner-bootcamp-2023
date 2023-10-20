@@ -55,11 +55,13 @@ availability_zone_names = [
 This is the default file to load in terraform varialbes in remote ex: gitpod, jumppad and this gets automatically processed by terraform
 
 ### auto.tfvars 
-- TODO: document this functionality for terraform cloud 
+- This is another way of loading terraform variables that you want to set locally , this can automatically get loaded as well.
 
+Ex: `instance_type = "t2.large"`
 
 
 ### order of terraform variables
 
+-TODO 
 
 ![Terraform variable order precedence]()
