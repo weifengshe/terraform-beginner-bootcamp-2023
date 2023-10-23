@@ -66,3 +66,24 @@ Ex: `instance_type = "t2.large"`
 -TODO 
 
 ![Terraform variable order precedence]()
+
+## Dealing with Configuration Drift 
+
+## What happens if we lose our state file? 
+
+if you lose your statefile, you most likely have to tear down all your cloud infrastrcutre manually. 
+
+You can use terraform import but it won't work for all cloud resources. You need the terraform providers documentation for which resources support import. 
+
+### Fix missing resources with terraform import 
+`terraform import aws_s3_bucket.bucket bucket-name`
+[Terraform Import](https://developer.hashicorp.com/terraform/language/import)
+
+[AWS S3 bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import) 
+
+### Fix manual configuration 
+
+If someone goes and delete or modified  clould resources manually through clickops. 
+
+if we run terraform plan is with attempt to put our infrastructure back into the expected state fix
+
