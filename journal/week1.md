@@ -87,3 +87,37 @@ If someone goes and delete or modified  clould resources manually through clicko
 
 if we run terraform plan is with attempt to put our infrastructure back into the expected state fix
 
+### Fix using Terraform Refresh 
+```sh 
+terraform apply -refresh-only --auto-approve
+```
+
+## Terraform Module and Strcture
+
+It is recommended to place modules in a modules directory when locally developing modules but you can mane it what every you like. 
+
+## Passing input varialbes
+We can pass input variables to our models. The module has to declare the terraform variables in its own variables.tf 
+
+```
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  user_uuid = var.user_uuid
+  bucket_name = var.bucket_name
+}
+```
+
+### Modules sources 
+Using the source we can import the module from various places, eg: 
+
+ - locally
+ - Github
+ - Terraform registry
+
+ ```
+ module "terrahouse_aws"{
+    source = "./modules/terrahouse_aws"
+ }
+```
+
+[Modules Sources](https://developer.hashicorp.com/terraform/language/modules/sources) 
