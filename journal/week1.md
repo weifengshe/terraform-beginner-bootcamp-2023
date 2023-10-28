@@ -161,3 +161,26 @@ resource "aws_s3_object" "index_html"
   
   }
   ``` 
+
+### Fix tags 
+
+[how to delete a local and remote tag](https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/)
+
+```sh
+### Locally delete a tag
+git tag -d <tag-name>
+
+### Remotely delete a tag
+git push --delete origin <tag-name>
+```
+
+### retag a previous commit 
+copy the sha for tha commit 
+```sh 
+git checkout <sha>
+git tag M.M.P
+git push --tags
+```
+
+
+
