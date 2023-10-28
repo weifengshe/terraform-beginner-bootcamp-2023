@@ -100,7 +100,7 @@ It is recommended to place modules in a modules directory when locally developin
 We can pass input variables to our models. The module has to declare the terraform variables in its own variables.tf 
 
 ```
-module "terrahouse_aws" {
+module "terrahouse-aws" {
   source = "./modules/terrahouse_aws"
   user_uuid = var.user_uuid
   bucket_name = var.bucket_name
