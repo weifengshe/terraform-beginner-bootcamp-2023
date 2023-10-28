@@ -26,6 +26,15 @@ variable "index_html_filepath" {
   description = "Filepath to the index.html file"
   validation {
     condition     = can(fileexists(var.index_html_filepath))
-    error_message = "The specified file path does not exist or is invalid."
+    error_message = "The provided path for index.html does not exist."
+  }
+}
+
+variable "error_html_filepath" {
+  type        = string
+  description = "Filepath to the error.html file"
+  validation {
+    condition     = can(fileexists(var.error_html_filepath))
+    error_message = "The provided path for error.html does not exist."
   }
 }
