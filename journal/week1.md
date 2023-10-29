@@ -182,5 +182,40 @@ git tag M.M.P
 git push --tags
 ```
 
+## Terraform locals
+Locals allows us to define local variables 
+It can be very useful when we need transform data into another format and have referenced a variable
+[Local Values](https://developer.hashicorp.com/terraform/language/values/locals)
+
+```tf
+locals  {
+    s3_origin_id = "MyS3Origin"
+}
+```
+
+### Terraform Data Sources
+
+This allows us to source data from resources. 
+This is useful when we want to reference cloud resources without importing them 
+```tf
+data "aws_caller_identity" "current" {}
+
+output "account_id" {
+  value = data.aws_caller_identity.current.account_id
+}
+```
+
+[Data Sources](https://developer.hashicorp.com/terraform/language/data-sources) 
 
 
+## Working JSON
+
+We use the jsonencode to create the json policy inline in the hcl.
+
+
+```tf 
+> jsonencode({"hello"="world"})
+{"hello":"world"}
+```
+
+[jsonencode](https://developer.hashicorp.com/terraform/language/functions/jsonencode)
