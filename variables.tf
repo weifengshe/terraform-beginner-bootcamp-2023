@@ -16,4 +16,6 @@ variable "error_html_filepath" {
   
 }
 
-
+variable "content_version" {
+  type        = number
+}
