@@ -255,3 +255,20 @@ resource "example_database" "test" {
 ```
 
 [Terraform Data](https://developer.hashicorp.com/terraform/language/resources/terraform-data)
+
+## Provisioner:
+
+Provisioners allow you to execute commands on compute instances eg. a AWS CLI command 
+
+They are not recommended for use by Hashicorp because Configuration Management tools such as Ansible are a better fit, but the functionality exists.
+
+[Provisioners](https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax) 
+
+### local-exec
+
+Theil will execute a command on the machine running the terraform command eg, tf plan 
+
+### Remote-exect
+
+This will execute the command on a machine wich you target, you will need to provide credentials such as ssh to get into the amchine 
+
