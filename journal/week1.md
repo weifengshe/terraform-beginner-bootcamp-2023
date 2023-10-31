@@ -268,7 +268,21 @@ They are not recommended for use by Hashicorp because Configuration Management t
 
 Theil will execute a command on the machine running the terraform command eg, tf plan 
 
-### Remote-exect
+### Remote-exec
 
 This will execute the command on a machine wich you target, you will need to provide credentials such as ssh to get into the amchine 
 
+## fileset 
+fileset enumerates a set of regular file names given a path and pattern. The path is automatically removed from the resulting set of file names and any result still containing path separators always returns forward slash (/) as the path separator for cross-system compatibility.
+
+https://developer.hashicorp.com/terraform/language/functions/fileset
+
+## For each 
+
+For each allows us to enumerate over complex data structure types
+```sh
+[for s in var.list : upper(s)]
+```
+This is mostly useful when you are creating multiples of a cloud resource and you want to reduce the amount of repetitive terraform code.
+
+[for each expression](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)

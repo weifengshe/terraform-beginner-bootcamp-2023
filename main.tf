@@ -8,6 +8,6 @@ module "terrahouse-aws" {
   index_html_filepath = var.index_html_filepath
   error_html_filepath = var.error_html_filepath
   content_version =  var.content_version
-  
+  asset_path = var.asset_path
 }
 
