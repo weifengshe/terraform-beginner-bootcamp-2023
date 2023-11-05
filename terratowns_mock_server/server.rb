@@ -29,6 +29,7 @@ class Home
   attr_accessor :town, :name, :description, :domain_name, :content_version
 
   validates :town, presence: true, inclusion: { in: [
+    # terratowns.cloud
     'melomaniac-mansion',
     'cooker-cove',
     'video-valley',
@@ -45,7 +46,7 @@ class Home
     format: { with: /\.cloudfront\.net\z/, message: "domain must be from .cloudfront.net" }
     # uniqueness: true, 
 
-  # contentt version must be an integer
+  # content version must be an integer
   # We will make sure it an incremental version in the controller. 
   validates :content_version, numericality: { only_integer: true }
 end
@@ -53,6 +54,7 @@ end
 # We are extendinng a class from Sinatra::Base to 
 # turn this generic class to utilize the sinatra web-framework 
 class TerraTownsMockServer < Sinatra::Base
+
 
   def error code, message
     halt code, {'Content-Type' => 'application/json'}, {err: message}.to_json
@@ -110,6 +112,7 @@ class TerraTownsMockServer < Sinatra::Base
 
   # CREATE
   post '/api/u/:user_uuid/homes' do
+    # in ruby "()" in function is optional, next 2 are functions 
     ensure_correct_headings
     find_user_by_bearer_token
     # Puts will print to the terminal, similar to a print or console.log
@@ -245,4 +248,5 @@ class TerraTownsMockServer < Sinatra::Base
   end
 end
 
+# This is whatt will run the server. 
 TerraTownsMockServer.run!
