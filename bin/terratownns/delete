@@ -1,6 +1,6 @@
 #! /usr/bin/bash
 
-user_uuid="e328f4ab-b99f-421c-84c9-4ccea042c7d1" 
+user_uuid="d1d108e9-10d0-4c85-91a1-c70a2860e026" 
 token="9b49b3fb-b8e9-483c-b703-97ba88eef8e0"
 house_uuid="$1"
 

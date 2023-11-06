@@ -172,7 +172,7 @@ class TerraTownsMockServer < Sinatra::Base
       domain_name: domain_name,
       content_version: content_version
     }
-    will just return uuid 
+    # will just return uuid 
     return { uuid: uuid }.to_json
   end
 
