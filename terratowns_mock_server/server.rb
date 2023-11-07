@@ -93,7 +93,7 @@ class TerraTownsMockServer < Sinatra::Base
 
     # Does the token match the one in our database? 
     # if we can't find it, then return an error of it it doesn't match
-    # code = access_code = token 
+    # code = access_code_token 
     code = auth_header.split("Bearer ")[1]
     if code != x_access_code
       error 401, "a1001 Failed to authenicate, bearer token invalid and/or teacherseat_user_uuid invalid"
@@ -113,8 +113,8 @@ class TerraTownsMockServer < Sinatra::Base
   # CREATE
   post '/api/u/:user_uuid/homes' do
     # in ruby "()" in function is optional, next 2 are functions 
-    ensure_correct_headings
-    find_user_by_bearer_token
+    ensure_correct_headings()
+    find_user_by_bearer_token()
     # Puts will print to the terminal, similar to a print or console.log
     puts "# create - POST /api/homes"
 
@@ -208,7 +208,6 @@ class TerraTownsMockServer < Sinatra::Base
     # Validate payload data
     name = payload["name"]
     description = payload["description"]
-    domain_name = payload["domain_name"]
     content_version = payload["content_version"]
 
     unless params[:uuid] == $home[:uuid]
@@ -217,10 +216,11 @@ class TerraTownsMockServer < Sinatra::Base
 
     home = Home.new
     home.town = $home[:town]
+    home.domain_name = $home[:domain_name]
     home.name = name
-    home.description = description
-    home.domain_name = domain_name
+    home.description = description 
     home.content_version = content_version
+    binding.pry
 
     unless home.valid?
       error 422, home.errors.messages.to_json

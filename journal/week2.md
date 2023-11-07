@@ -52,6 +52,19 @@ bundle install
 bundle exec ruby server.rb
 ```
 
+### Create, Read and Update the new home
+
+Once the server is up running, then in the working directory, run the following commands
+
+```
+# Create
+./bin/terratownns/create
+
+./bin/terratownns/read <uuid>
+./bin/terratownns/update <uuid>
+./bin/terratownns/destroy <uuid>
+``` 
+
 All of the code for our server is stored in the `server.rb` file.
 
 
