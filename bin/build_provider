@@ -1,15 +1,17 @@
 #! /usr/bin/bash 
 
-PLUG_DIR="~/.terraform.d/plugins/local.providers/local/terratowns/1.0.0"
+PLUG_DIR="/home/gitpod/.terraform.d/plugins/local.providers/local/terratowns/1.0.0"
 PLUG_NAME="terraform-provider-terratowns_v1.0.0"
 
+# https://servian.dev/terraform-local-providers-and-registry-mirror-configuration-b963117dfffa
 cd $PROJECT_ROOT/terraform-provider-terratowns
-cp $PROJECT_ROOT/terraformrc /home/gitpot/.terraformrc
-rm -rf ~/.terraform.d/plugins
+cp $PROJECT_ROOT/terraformrc /home/gitpod/.terraformrc
+
+rm -rf /home/gitpod/.terraform.d/plugins
 rm -rf $PROJECT_ROOT/.terraform
 rm -rf $PROJECT_ROOT/.terraform.lock.hcl 
 go build -o $PLUG_NAME
-makedir -p $PLUG_DIR/x86_64/
-makedir -p $PLUG_DIR/linux_amd64/
+mkdir -p $PLUG_DIR/x86_64/
+mkdir -p $PLUG_DIR/linux_amd64/
 cp $PLUG_NAME $PLUG_DIR/x86_64
 cp $PLUG_NAME $PLUG_DIR/linux_amd64
