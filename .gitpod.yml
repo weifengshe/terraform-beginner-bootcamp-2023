@@ -1,5 +1,7 @@
 tasks:
   - name: terraform
+    env:
+      TF_LOG: DEBUG 
     before: |
       cd $PROJECT_ROOT
       source ./bin/set_tf_alias
@@ -31,3 +33,4 @@ vscode:
     - mhutchie.git-graph
     - phil294.git-log--graph
     - eamodio.gitlens
+    - furkanozalp.go-syntax
