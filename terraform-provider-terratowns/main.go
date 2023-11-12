@@ -32,6 +32,7 @@ type Config struct {
 	UserUuid string  
 }
 
+
 // in golang, a titlecase function will get exported 
 
 func Provider() *schema.Provider {
@@ -59,6 +60,7 @@ func Provider() *schema.Provider {
 				Type: schema.TypeString,
 				Required: true,
 				Description: "UUID for configuration",
+
 				ValidateFunc: validateUUID, 
 			},
 		},
