@@ -14,6 +14,7 @@ provider "terratowns" {
   token="9b49b3fb-b8e9-483c-b703-97ba88eef8e0"
   
 }
+
 # module "terrahouse-aws" {
 #   source = "./modules/terrahousr_aws"
 #   user_uuid = var.user_uuid
@@ -24,4 +25,15 @@ provider "terratowns" {
 #   asset_path = var.asset_path
 # }
 
-
+resource "terratowns_home" "home" {
+  name = "How to play Arcanum in 2023!!"
+  description = <<DESCRIPTION
+  Acranum is a game from 2001 that shipped with a log of bugs.
+  Modders have removed all the originals making this game really fun
+  to play (despite that old look graphics). This is my guide that will
+  show you how to play Acranum withoutt spoiling the plot.
+  DESCRIPTION
+  domain_name = "3fdq3gz.cloudfront.net"
+  town = "gamers-grotto"
+  content_version = 1
+}
