@@ -8,6 +8,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"context"
 	"log"
 	"fmt"
 	"github.com/google/uuid"
@@ -91,6 +92,12 @@ func providerConfigure(p *schema.Provider) schema.ConfigureContextFunc {
 }
 
 func Resource() *schema.Resource {
+=======
+		return &config, nil 
+	}
+}
+
+func Resource() *schema.Resource{
 	log.Print("Resource:start")
 	resource := &schema.Resource{
 		CreateContext: resourceHouseCreate,
